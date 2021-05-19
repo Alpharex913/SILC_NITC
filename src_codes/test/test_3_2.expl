@@ -1,0 +1,13 @@
+begin 
+	s=0;
+	f=1;
+	while(f==1)do
+		read(a);
+		if(a==0)then
+			break;
+		else
+			s=s+a;
+		endif;
+	endwhile;
+	write(s);
+end

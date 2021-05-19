@@ -1,0 +1,122 @@
+class
+	A
+	{
+		decl
+			int f0();
+			int f1();
+		enddecl
+
+		int f0() 
+		{
+			begin
+				write("In class A f0");
+				return 1;
+			end
+		}
+
+		int f1() 
+		{
+			begin
+				write("In class A f1");
+				return 1;
+			end
+		}
+	}
+
+	B extends A
+	{
+		decl
+			int f0();
+			int f2();
+		enddecl
+		int f0() 
+		{
+			begin
+				write("In class B f0");
+				return 1;
+			end
+		}
+
+		int f2() 
+		{
+			begin
+				write("In class B f2");
+				return 1;
+			end
+		}
+	}
+
+	C extends B
+	{
+		decl
+			int f0();
+			int f2();
+			int f4();
+		enddecl
+
+		int f0() 
+		{
+			begin
+				write("In class C f0");
+				return 1;
+			end
+		}
+
+		int f2() 
+		{
+			begin
+				write("In class C f2");
+				return 1;
+			end
+		}
+
+		int f4() 
+		{
+			begin
+				write("In class C f4");
+				return 1;
+			end
+		}
+	}
+endclass
+
+decl
+	A obj_1;
+	B obj_2;
+	C obj_3;
+	A test_obj_1;
+	B test_obj_2;
+	C test_obj_3;
+enddecl
+
+int main() 
+{
+	decl
+		int temp,n;
+	enddecl
+	
+	begin
+		temp= initialize();
+		read(n);
+		
+		if(n < 0)then
+			obj_1 = new(A);
+			test_obj_1=obj_1;
+			write(test_obj_1.f0());
+		else
+			if(n == 0)then
+				obj_2 = new(B);
+				test_obj_2=obj_2;
+				write(test_obj_2.f0());
+			else
+				if(n > 0)then
+					obj_3 = new(C);
+					test_obj_3=obj_3;
+					write(test_obj_3.f0());
+				endif;
+			endif;
+		endif;
+		
+		return 1;
+	end
+}
